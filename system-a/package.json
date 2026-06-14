@@ -1,0 +1,29 @@
+{
+  "name": "system-a",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "start": "node src/server/index.js",
+    "lb": "cross-env LB_PORT=3000 node src/loadbalancer/lb.js",
+    "instance1": "cross-env PORT=3001 INSTANCE_ID=instance-1 node src/server/index.js",
+    "instance2": "cross-env PORT=3002 INSTANCE_ID=instance-2 node src/server/index.js",
+    "instance3": "cross-env PORT=3003 INSTANCE_ID=instance-3 node src/server/index.js",
+    "dev": "nodemon src/server/index.js",
+    "test": "jest"
+  },
+  "dependencies": {
+    "axios": "^1.7.0",
+    "dotenv": "^16.4.0",
+    "express": "^4.19.2",
+    "http-proxy": "^1.18.1",
+    "pg": "^8.13.0",
+    "pidusage": "^3.0.2",
+    "winston": "^3.13.0"
+  },
+  "devDependencies": {
+    "cross-env": "^10.1.0",
+    "jest": "^30.3.0",
+    "nodemon": "^3.1.0",
+    "supertest": "^7.0.0"
+  }
+}
