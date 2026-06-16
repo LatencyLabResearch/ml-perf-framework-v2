@@ -41,6 +41,10 @@ function buildRow(m, e) {
 }
 
 module.exports = (req, res, next) => {
+    if (req.path === '/health') {
+        return next();
+    }
+
     res.on('finish', () => {
         try {
             const m = req._metrics || {};
