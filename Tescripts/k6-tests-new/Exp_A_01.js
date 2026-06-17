@@ -24,7 +24,7 @@ export const options = {
 export default function () {
   // A fixed user ID is used so every iteration hits the same endpoint shape.
   // Change to a random ID if your backend requires unique IDs.
-  const userId = 1;
+  const userId = Math.floor(Math.random()*10)+1;
 
   const headers = {
     'Content-Type':       'application/json',

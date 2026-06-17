@@ -30,7 +30,7 @@ export const options = {
 };
 
 export default function () {
-  const userId = 1;
+  const userId = Math.floor(Math.random()*10)+1;
 
   const headers = {
     'Content-Type':       'application/json',
