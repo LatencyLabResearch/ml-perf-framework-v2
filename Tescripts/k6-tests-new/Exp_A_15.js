@@ -22,7 +22,7 @@ export const options = {
 
 export default function () {
   const payload = JSON.stringify({
-    userId:   1,
+    userId:   Math.floor(Math.random() * 10) + 1, // 1-10
     product:  'sample-product',
     quantity: 1,
     price:    9.99,

@@ -24,10 +24,10 @@ export const options = {
 
 export default function () {
   const payload = JSON.stringify({
-    userId:   1,
-    product:  'sample-product',
-    quantity: 1,
-    price:    9.99,
+    user_id: Math.floor(Math.random() * 10) + 1, // 1-10
+    product: `product-${Math.floor(Math.random() * 1000)}`,
+    quantity: Math.floor(Math.random() * 10) + 1, // 1-10
+    amount: Number((Math.random() * 100 + 1).toFixed(2)), // 1.00-100.99
   });
 
   const headers = {
