@@ -1,0 +1,158 @@
+
+         /\      Grafana   /‾‾/
+    /\  /  \     |\  __   /  /
+   /  \/    \    | |/ /  /   ‾‾\
+  /          \   |   (  |  (‾)  |
+ / __________ \  |_|\_\  \_____/
+
+
+     execution: local
+        script: Exp_A_02.js
+        output: -
+
+     scenarios: (100.00%) 1 scenario, 50 max VUs, 10m30s max duration (incl. graceful stop):
+              * default: 50 looping VUs for 10m0s (gracefulStop: 30s)
+
+WARN[0107] Request Failed                                error="Get \"http://localhost:3000/api/orders/10\": request timeout"
+WARN[0107] Request Failed                                error="Get \"http://localhost:3000/api/orders/4\": request timeout"
+WARN[0107] Request Failed                                error="Get \"http://localhost:3000/api/orders/7\": request timeout"
+WARN[0107] Request Failed                                error="Get \"http://localhost:3000/api/orders/7\": request timeout"
+WARN[0107] Request Failed                                error="Get \"http://localhost:3000/api/orders/2\": request timeout"
+WARN[0107] Request Failed                                error="Get \"http://localhost:3000/api/orders/7\": request timeout"
+WARN[0107] Request Failed                                error="Get \"http://localhost:3000/api/orders/8\": request timeout"
+WARN[0107] Request Failed                                error="Get \"http://localhost:3000/api/orders/8\": request timeout"
+WARN[0107] Request Failed                                error="Get \"http://localhost:3000/api/orders/4\": request timeout"
+WARN[0107] Request Failed                                error="Get \"http://localhost:3000/api/orders/8\": request timeout"
+WARN[0107] Request Failed                                error="Get \"http://localhost:3000/api/orders/1\": request timeout"
+WARN[0107] Request Failed                                error="Get \"http://localhost:3000/api/orders/8\": request timeout"
+WARN[0107] Request Failed                                error="Get \"http://localhost:3000/api/orders/6\": request timeout"
+WARN[0107] Request Failed                                error="Get \"http://localhost:3000/api/orders/5\": request timeout"
+WARN[0107] Request Failed                                error="Get \"http://localhost:3000/api/orders/9\": request timeout"
+WARN[0107] Request Failed                                error="Get \"http://localhost:3000/api/orders/9\": request timeout"
+WARN[0107] Request Failed                                error="Get \"http://localhost:3000/api/orders/7\": request timeout"
+WARN[0107] Request Failed                                error="Get \"http://localhost:3000/api/orders/5\": request timeout"
+WARN[0107] Request Failed                                error="Get \"http://localhost:3000/api/orders/9\": request timeout"
+WARN[0107] Request Failed                                error="Get \"http://localhost:3000/api/orders/7\": request timeout"
+WARN[0107] Request Failed                                error="Get \"http://localhost:3000/api/orders/2\": request timeout"
+WARN[0107] Request Failed                                error="Get \"http://localhost:3000/api/orders/3\": request timeout"
+WARN[0107] Request Failed                                error="Get \"http://localhost:3000/api/orders/3\": request timeout"
+WARN[0107] Request Failed                                error="Get \"http://localhost:3000/api/orders/10\": request timeout"
+WARN[0107] Request Failed                                error="Get \"http://localhost:3000/api/orders/5\": request timeout"
+WARN[0107] Request Failed                                error="Get \"http://localhost:3000/api/orders/8\": request timeout"
+WARN[0107] Request Failed                                error="Get \"http://localhost:3000/api/orders/6\": request timeout"
+WARN[0107] Request Failed                                error="Get \"http://localhost:3000/api/orders/1\": request timeout"
+WARN[0107] Request Failed                                error="Get \"http://localhost:3000/api/orders/4\": request timeout"
+WARN[0107] Request Failed                                error="Get \"http://localhost:3000/api/orders/2\": request timeout"
+WARN[0107] Request Failed                                error="Get \"http://localhost:3000/api/orders/3\": request timeout"
+WARN[0107] Request Failed                                error="Get \"http://localhost:3000/api/orders/5\": request timeout"
+WARN[0107] Request Failed                                error="Get \"http://localhost:3000/api/orders/2\": request timeout"
+WARN[0107] Request Failed                                error="Get \"http://localhost:3000/api/orders/2\": request timeout"
+WARN[0107] Request Failed                                error="Get \"http://localhost:3000/api/orders/1\": request timeout"
+WARN[0107] Request Failed                                error="Get \"http://localhost:3000/api/orders/5\": request timeout"
+WARN[0107] Request Failed                                error="Get \"http://localhost:3000/api/orders/4\": request timeout"
+WARN[0107] Request Failed                                error="Get \"http://localhost:3000/api/orders/8\": request timeout"
+WARN[0107] Request Failed                                error="Get \"http://localhost:3000/api/orders/3\": request timeout"
+WARN[0107] Request Failed                                error="Get \"http://localhost:3000/api/orders/7\": request timeout"
+WARN[0107] Request Failed                                error="Get \"http://localhost:3000/api/orders/6\": request timeout"
+WARN[0107] Request Failed                                error="Get \"http://localhost:3000/api/orders/4\": request timeout"
+WARN[0107] Request Failed                                error="Get \"http://localhost:3000/api/orders/6\": request timeout"
+WARN[0107] Request Failed                                error="Get \"http://localhost:3000/api/orders/2\": request timeout"
+WARN[0107] Request Failed                                error="Get \"http://localhost:3000/api/orders/5\": request timeout"
+WARN[0108] Request Failed                                error="Get \"http://localhost:3000/api/orders/2\": request timeout"
+WARN[0108] Request Failed                                error="Get \"http://localhost:3000/api/orders/6\": request timeout"
+WARN[0108] Request Failed                                error="Get \"http://localhost:3000/api/orders/6\": request timeout"
+WARN[0108] Request Failed                                error="Get \"http://localhost:3000/api/orders/7\": request timeout"
+WARN[0110] Request Failed                                error="Get \"http://localhost:3000/api/orders/5\": request timeout"
+WARN[0112] Request Failed                                error="Get \"http://localhost:3000/api/orders/10\": request timeout"
+WARN[0112] Request Failed                                error="Get \"http://localhost:3000/api/orders/4\": request timeout"
+WARN[0112] Request Failed                                error="Get \"http://localhost:3000/api/orders/7\": request timeout"
+WARN[0112] Request Failed                                error="Get \"http://localhost:3000/api/orders/7\": request timeout"
+WARN[0112] Request Failed                                error="Get \"http://localhost:3000/api/orders/8\": request timeout"
+WARN[0112] Request Failed                                error="Get \"http://localhost:3000/api/orders/7\": request timeout"
+WARN[0112] Request Failed                                error="Get \"http://localhost:3000/api/orders/8\": request timeout"
+WARN[0112] Request Failed                                error="Get \"http://localhost:3000/api/orders/2\": request timeout"
+WARN[0112] Request Failed                                error="Get \"http://localhost:3000/api/orders/8\": request timeout"
+WARN[0112] Request Failed                                error="Get \"http://localhost:3000/api/orders/8\": request timeout"
+WARN[0112] Request Failed                                error="Get \"http://localhost:3000/api/orders/4\": request timeout"
+WARN[0112] Request Failed                                error="Get \"http://localhost:3000/api/orders/1\": request timeout"
+WARN[0112] Request Failed                                error="Get \"http://localhost:3000/api/orders/6\": request timeout"
+WARN[0112] Request Failed                                error="Get \"http://localhost:3000/api/orders/5\": request timeout"
+WARN[0112] Request Failed                                error="Get \"http://localhost:3000/api/orders/9\": request timeout"
+WARN[0112] Request Failed                                error="Get \"http://localhost:3000/api/orders/9\": request timeout"
+WARN[0112] Request Failed                                error="Get \"http://localhost:3000/api/orders/7\": request timeout"
+WARN[0112] Request Failed                                error="Get \"http://localhost:3000/api/orders/5\": request timeout"
+WARN[0112] Request Failed                                error="Get \"http://localhost:3000/api/orders/9\": request timeout"
+WARN[0112] Request Failed                                error="Get \"http://localhost:3000/api/orders/2\": request timeout"
+WARN[0112] Request Failed                                error="Get \"http://localhost:3000/api/orders/7\": request timeout"
+WARN[0112] Request Failed                                error="Get \"http://localhost:3000/api/orders/3\": request timeout"
+WARN[0112] Request Failed                                error="Get \"http://localhost:3000/api/orders/3\": request timeout"
+WARN[0112] Request Failed                                error="Get \"http://localhost:3000/api/orders/10\": request timeout"
+WARN[0112] Request Failed                                error="Get \"http://localhost:3000/api/orders/8\": request timeout"
+WARN[0112] Request Failed                                error="Get \"http://localhost:3000/api/orders/5\": request timeout"
+WARN[0112] Request Failed                                error="Get \"http://localhost:3000/api/orders/6\": request timeout"
+WARN[0112] Request Failed                                error="Get \"http://localhost:3000/api/orders/1\": request timeout"
+WARN[0112] Request Failed                                error="Get \"http://localhost:3000/api/orders/4\": request timeout"
+WARN[0112] Request Failed                                error="Get \"http://localhost:3000/api/orders/2\": request timeout"
+WARN[0112] Request Failed                                error="Get \"http://localhost:3000/api/orders/3\": request timeout"
+WARN[0112] Request Failed                                error="Get \"http://localhost:3000/api/orders/5\": request timeout"
+WARN[0112] Request Failed                                error="Get \"http://localhost:3000/api/orders/2\": request timeout"
+WARN[0112] Request Failed                                error="Get \"http://localhost:3000/api/orders/2\": request timeout"
+WARN[0112] Request Failed                                error="Get \"http://localhost:3000/api/orders/1\": request timeout"
+WARN[0112] Request Failed                                error="Get \"http://localhost:3000/api/orders/5\": request timeout"
+WARN[0112] Request Failed                                error="Get \"http://localhost:3000/api/orders/4\": request timeout"
+WARN[0112] Request Failed                                error="Get \"http://localhost:3000/api/orders/3\": request timeout"
+WARN[0112] Request Failed                                error="Get \"http://localhost:3000/api/orders/8\": request timeout"
+WARN[0112] Request Failed                                error="Get \"http://localhost:3000/api/orders/7\": request timeout"
+WARN[0112] Request Failed                                error="Get \"http://localhost:3000/api/orders/4\": request timeout"
+WARN[0112] Request Failed                                error="Get \"http://localhost:3000/api/orders/6\": request timeout"
+WARN[0112] Request Failed                                error="Get \"http://localhost:3000/api/orders/6\": request timeout"
+WARN[0112] Request Failed                                error="Get \"http://localhost:3000/api/orders/2\": request timeout"
+WARN[0112] Request Failed                                error="Get \"http://localhost:3000/api/orders/5\": request timeout"
+WARN[0113] Request Failed                                error="Get \"http://localhost:3000/api/orders/2\": request timeout"
+WARN[0113] Request Failed                                error="Get \"http://localhost:3000/api/orders/6\": request timeout"
+WARN[0113] Request Failed                                error="Get \"http://localhost:3000/api/orders/6\": request timeout"
+WARN[0113] Request Failed                                error="Get \"http://localhost:3000/api/orders/7\": request timeout"
+
+
+  █ THRESHOLDS 
+
+    http_req_duration
+    ✓ 'p(95)<500' p(95)=22.19ms
+
+    http_req_failed
+    ✗ 'rate<0.01' rate=3.21%
+
+
+  █ TOTAL RESULTS 
+
+    checks_total.......: 57498  95.711967/s
+    checks_succeeded...: 99.25% 57072 out of 57498
+    checks_failed......: 0.74%  426 out of 57498
+
+    ✗ status is 200
+      ↳  99% — ✓ 28468 / ✗ 281
+    ✗ response time < 500 ms
+      ↳  99% — ✓ 28604 / ✗ 145
+
+    HTTP
+    http_req_duration..............: avg=33.2ms  min=510.4µs med=6.1ms  max=5s     p(90)=15.4ms  p(95)=22.19ms
+      { expected_response:true }...: avg=16.79ms min=534.2µs med=6.17ms max=4.17s  p(90)=15.37ms p(95)=21.82ms
+    http_req_failed................: 3.21%  945 out of 29413
+    http_reqs......................: 29413  48.961287/s
+
+    EXECUTION
+    iteration_duration.............: avg=1.04s   min=1s      med=1s     max=13.23s p(90)=1.01s   p(95)=1.02s
+    iterations.....................: 28749  47.855983/s
+    vus............................: 50     min=50           max=50
+    vus_max........................: 50     min=50           max=50
+
+    NETWORK
+    data_received..................: 11 MB  19 kB/s
+    data_sent......................: 8.6 MB 14 kB/s
+
+
+
+
+running (10m00.7s), 00/50 VUs, 28749 complete and 0 interrupted iterations
+default ✓ [======================================] 50 VUs  10m0s
+ERRO[0601] thresholds on metrics 'http_req_failed' have been crossed 

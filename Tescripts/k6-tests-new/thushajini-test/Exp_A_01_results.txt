@@ -1,0 +1,58 @@
+        /\      Grafana   /‾‾/  
+    /\  /  \     |\  __   /  /   
+   /  \/    \    | |/ /  /   ‾‾\ 
+  /          \   |   (  |  (‾)  |
+ / __________ \  |_|\_\  \_____/ 
+
+
+     execution: local
+        script: Exp_A_01.js
+        output: -
+
+     scenarios: (100.00%) 1 scenario, 50 max VUs, 10m30s max duration (incl. graceful stop):
+              * default: 50 looping VUs for 10m0s (gracefulStop: 30s)
+
+
+
+  █ THRESHOLDS 
+
+    http_req_duration
+    ✓ 'p(95)<500' p(95)=29.29ms
+
+    http_req_failed
+    ✗ 'rate<0.01' rate=2.09%
+
+
+  █ TOTAL RESULTS 
+
+    checks_total.......: 56770  94.552987/s
+    checks_succeeded...: 98.68% 56025 out of 56770
+    checks_failed......: 1.31%  745 out of 56770
+
+    ✗ status is 200
+      ↳  97% — ✓ 27789 / ✗ 596
+    ✗ response time < 500 ms
+      ↳  99% — ✓ 28236 / ✗ 149
+
+    HTTP
+    http_req_duration..............: avg=56.49ms min=510.7µs med=6.4ms  max=15.89s   p(90)=16.93ms p(95)=29.29ms
+      { expected_response:true }...: avg=10.95ms min=510.7µs med=6.43ms max=601.71ms p(90)=16.44ms p(95)=26.85ms
+    http_req_failed................: 2.09%  596 out of 28385
+    http_reqs......................: 28385  47.276494/s
+
+    EXECUTION
+    iteration_duration.............: avg=1.05s   min=1s      med=1s     max=16.98s   p(90)=1.01s   p(95)=1.03s  
+    iterations.....................: 28385  47.276494/s
+    vus............................: 50     min=50           max=50
+    vus_max........................: 50     min=50           max=50
+
+    NETWORK
+    data_received..................: 11 MB  18 kB/s
+    data_sent......................: 8.3 MB 14 kB/s
+
+
+
+
+running (10m00.4s), 00/50 VUs, 28385 complete and 0 interrupted iterations
+default ✓ [======================================] 50 VUs  10m0s
+ERRO[0601] thresholds on metrics 'http_req_failed' have been crossed 
