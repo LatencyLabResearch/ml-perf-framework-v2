@@ -1,0 +1,9 @@
+{
+    "name": "autoscaler",
+    "version": "1.0.0",
+    "type": "module",
+    "dependencies": {
+        "dockerode": "^4.0.2",
+        "node-fetch": "^3.3.2"
+    }
+}
