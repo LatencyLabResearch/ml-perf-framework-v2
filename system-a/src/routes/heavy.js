@@ -60,64 +60,58 @@ router.get('/reports/user-orders', async (req, res) => {
 });
 
 // ── H2: GET /api/analytics/order-summary ─────────────────────────────────────
-// Three parallel queries submitted concurrently via Promise.all.
-// Each touches the full orders table in a different way.
 router.get('/analytics/order-summary', async (req, res) => {
-    try {
-        const [summaryResult, statusResult, trendResult] = await Promise.all([
-
-            // Q1: overall totals — one pass over orders
-            pool.query(`
-        SELECT
-          COUNT(*)                          AS total_orders,
-          COALESCE(SUM(amount),  0)::NUMERIC AS total_revenue,
-          COALESCE(AVG(amount),  0)::NUMERIC AS avg_order_value,
-          COALESCE(MIN(amount),  0)::NUMERIC AS min_order_value,
-          COALESCE(MAX(amount),  0)::NUMERIC AS max_order_value
+  try {
+    const result = await pool.query(`
+      WITH base AS (
+        SELECT *
         FROM orders
-      `),
+      ),
 
-            // Q2: per-status breakdown with window function for percentage share
-            pool.query(`
+      summary AS (
+        SELECT
+          COUNT(*) AS total_orders,
+          COALESCE(SUM(amount), 0)::NUMERIC AS total_revenue,
+          COALESCE(AVG(amount), 0)::NUMERIC AS avg_order_value,
+          COALESCE(MIN(amount), 0)::NUMERIC AS min_order_value,
+          COALESCE(MAX(amount), 0)::NUMERIC AS max_order_value
+        FROM base
+      ),
+
+      status AS (
         SELECT
           status,
-          COUNT(*)                          AS count,
-          COALESCE(SUM(amount), 0)::NUMERIC AS revenue,
-          ROUND(
-            COUNT(*) * 100.0
-            / NULLIF(SUM(COUNT(*)) OVER (), 0), 2
-          )                                 AS pct_of_total
-        FROM orders
+          COUNT(*) AS count,
+          COALESCE(SUM(amount), 0)::NUMERIC AS revenue
+        FROM base
         GROUP BY status
-        ORDER BY count DESC
-      `),
+      ),
 
-            // Q3: daily order counts and revenue for the last 30 days
-            // Uses idx_orders_created_at for the date range filter
-            pool.query(`
+      daily AS (
         SELECT
           DATE_TRUNC('day', created_at)::DATE AS day,
-          COUNT(*)                             AS orders,
-          COALESCE(SUM(amount), 0)::NUMERIC    AS revenue
-        FROM orders
+          COUNT(*) AS orders,
+          COALESCE(SUM(amount), 0)::NUMERIC AS revenue
+        FROM base
         WHERE created_at >= NOW() - INTERVAL '30 days'
         GROUP BY 1
-        ORDER BY 1 DESC
-      `),
-        ]);
+      )
 
-        res.json({
-            data: {
-                summary: summaryResult.rows[0],
-                by_status: statusResult.rows,
-                daily_trend: trendResult.rows,
-            },
-            meta: { generated_at: new Date().toISOString() },
-        });
-    } catch (err) {
-        console.error('[H2] GET /analytics/order-summary', err.message);
-        res.status(500).json({ error: 'Internal server error' });
-    }
+      SELECT
+        (SELECT row_to_json(summary) FROM summary) AS summary,
+        (SELECT json_agg(status) FROM status) AS by_status,
+        (SELECT json_agg(daily ORDER BY day DESC) FROM daily) AS daily_trend;
+    `);
+
+    res.json({
+      data: result.rows[0],
+      meta: { generated_at: new Date().toISOString() }
+    });
+
+  } catch (err) {
+    console.error('[H2] GET /analytics/order-summary', err.message);
+    res.status(500).json({ error: 'Internal server error' });
+  }
 });
 
 module.exports = router;
