@@ -22,7 +22,7 @@ export const options = {
 };
 
 export default function () {
-  const orderId = 1;
+  const orderId = Math.floor(Math.random()*98706)+1;;
   const payload  = JSON.stringify({ status: 'processing' });
 
   const headers = {

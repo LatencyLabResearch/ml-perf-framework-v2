@@ -32,7 +32,7 @@ services:
 
   # ── Nginx load balancer ─────────────────────────────────
   nginx:
-    image: ${DOCKER_HUB_USER}/system-a-nginx:latest
+    image: vipusa/system-a-nginx:v6
     ports:
       - "3000:3000"
     depends_on:
@@ -49,7 +49,7 @@ services:
 
   # ── Node.js Instance 1 ──────────────────────────────────
   instance1:
-    image: ${DOCKER_HUB_USER}/system-a-app:latest
+    image: vipusa/system-a-app:v6
     user: root
     environment:
       <<: *app-env
@@ -75,7 +75,7 @@ services:
 
   # ── Node.js Instance 2 ──────────────────────────────────
   instance2:
-    image: ${DOCKER_HUB_USER}/system-a-app:latest
+    image: vipusa/system-a-app:v6
     user: root
     environment:
       <<: *app-env
@@ -102,7 +102,7 @@ services:
 
   # ── Node.js Instance 3 ──────────────────────────────────
   instance3:
-    image: ${DOCKER_HUB_USER}/system-a-app:latest
+    image: vipusa/system-a-app:v6
     user: root
     environment:
       <<: *app-env

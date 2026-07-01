@@ -1,0 +1,215 @@
+        /\      Grafana   /‾‾/  
+    /\  /  \     |\  __   /  /   
+   /  \/    \    | |/ /  /   ‾‾\ 
+  /          \   |   (  |  (‾)  |
+ / __________ \  |_|\_\  \_____/ 
+
+
+     execution: local
+        script: Exp_A_10.js
+        output: -
+
+     scenarios: (100.00%) 1 scenario, 300 max VUs, 10m30s max duration (incl. graceful stop):
+              * default: Up to 300 looping VUs for 10m0s over 1 stages (gracefulRampDown: 30s, gracefulStop: 30s)
+
+WARN[0210] The test has generated metrics with 100034 unique time series, which is higher than the suggested limit of 100000 and could cause high memory usage. Consider not using high-cardinality values like unique IDs as metric tags or, if you need them in the URL, use the name metric tag or URL grouping. See https://grafana.com/docs/k6/latest/using-k6/tags-and-groups/ for details.  component=metrics-engine-ingester
+WARN[0299] The test has generated metrics with 200177 unique time series, which is higher than the suggested limit of 100000 and could cause high memory usage. Consider not using high-cardinality values like unique IDs as metric tags or, if you need them in the URL, use the name metric tag or URL grouping. See https://grafana.com/docs/k6/latest/using-k6/tags-and-groups/ for details.  component=metrics-engine-ingester
+WARN[0413] Request Failed                                error="Patch \"http://localhost:3000/api/orders/74569/status\": request timeout"
+WARN[0413] Request Failed                                error="Patch \"http://localhost:3000/api/orders/101976/status\": request timeout"
+WARN[0413] Request Failed                                error="Patch \"http://localhost:3000/api/orders/3971/status\": request timeout"
+WARN[0413] Request Failed                                error="Patch \"http://localhost:3000/api/orders/103315/status\": request timeout"
+WARN[0413] Request Failed                                error="Patch \"http://localhost:3000/api/orders/62886/status\": request timeout"
+WARN[0413] Request Failed                                error="Patch \"http://localhost:3000/api/orders/48030/status\": request timeout"
+WARN[0413] Request Failed                                error="Patch \"http://localhost:3000/api/orders/23603/status\": request timeout"
+WARN[0413] Request Failed                                error="Patch \"http://localhost:3000/api/orders/118993/status\": request timeout"
+WARN[0413] Request Failed                                error="Patch \"http://localhost:3000/api/orders/121637/status\": request timeout"
+WARN[0413] Request Failed                                error="Patch \"http://localhost:3000/api/orders/2946/status\": request timeout"
+WARN[0413] Request Failed                                error="Patch \"http://localhost:3000/api/orders/88385/status\": request timeout"
+WARN[0413] Request Failed                                error="Patch \"http://localhost:3000/api/orders/106750/status\": request timeout"
+WARN[0413] Request Failed                                error="Patch \"http://localhost:3000/api/orders/62354/status\": request timeout"
+WARN[0413] Request Failed                                error="Patch \"http://localhost:3000/api/orders/83257/status\": request timeout"
+WARN[0413] Request Failed                                error="Patch \"http://localhost:3000/api/orders/108282/status\": request timeout"
+WARN[0413] Request Failed                                error="Patch \"http://localhost:3000/api/orders/22144/status\": request timeout"
+WARN[0413] Request Failed                                error="Patch \"http://localhost:3000/api/orders/76661/status\": request timeout"
+WARN[0413] Request Failed                                error="Patch \"http://localhost:3000/api/orders/103339/status\": request timeout"
+WARN[0413] Request Failed                                error="Patch \"http://localhost:3000/api/orders/54380/status\": request timeout"
+WARN[0413] Request Failed                                error="Patch \"http://localhost:3000/api/orders/63337/status\": request timeout"
+WARN[0413] Request Failed                                error="Patch \"http://localhost:3000/api/orders/78779/status\": request timeout"
+WARN[0413] Request Failed                                error="Patch \"http://localhost:3000/api/orders/125065/status\": request timeout"
+WARN[0413] Request Failed                                error="Patch \"http://localhost:3000/api/orders/100675/status\": request timeout"
+WARN[0413] Request Failed                                error="Patch \"http://localhost:3000/api/orders/10399/status\": request timeout"
+WARN[0413] Request Failed                                error="Patch \"http://localhost:3000/api/orders/73122/status\": request timeout"
+WARN[0413] Request Failed                                error="Patch \"http://localhost:3000/api/orders/106446/status\": request timeout"
+WARN[0413] Request Failed                                error="Patch \"http://localhost:3000/api/orders/109623/status\": request timeout"
+WARN[0413] Request Failed                                error="Patch \"http://localhost:3000/api/orders/105314/status\": request timeout"
+WARN[0413] Request Failed                                error="Patch \"http://localhost:3000/api/orders/72111/status\": request timeout"
+WARN[0413] Request Failed                                error="Patch \"http://localhost:3000/api/orders/66886/status\": request timeout"
+WARN[0413] Request Failed                                error="Patch \"http://localhost:3000/api/orders/70452/status\": request timeout"
+WARN[0413] Request Failed                                error="Patch \"http://localhost:3000/api/orders/119123/status\": request timeout"
+WARN[0413] Request Failed                                error="Patch \"http://localhost:3000/api/orders/3043/status\": request timeout"
+WARN[0413] Request Failed                                error="Patch \"http://localhost:3000/api/orders/68930/status\": request timeout"
+WARN[0413] Request Failed                                error="Patch \"http://localhost:3000/api/orders/85296/status\": request timeout"
+WARN[0413] Request Failed                                error="Patch \"http://localhost:3000/api/orders/11192/status\": request timeout"
+WARN[0413] Request Failed                                error="Patch \"http://localhost:3000/api/orders/83937/status\": request timeout"
+WARN[0413] Request Failed                                error="Patch \"http://localhost:3000/api/orders/77178/status\": request timeout"
+WARN[0413] Request Failed                                error="Patch \"http://localhost:3000/api/orders/16437/status\": request timeout"
+WARN[0413] Request Failed                                error="Patch \"http://localhost:3000/api/orders/66271/status\": request timeout"
+WARN[0413] Request Failed                                error="Patch \"http://localhost:3000/api/orders/56895/status\": request timeout"
+WARN[0413] Request Failed                                error="Patch \"http://localhost:3000/api/orders/35692/status\": request timeout"
+WARN[0413] Request Failed                                error="Patch \"http://localhost:3000/api/orders/34472/status\": request timeout"
+WARN[0413] Request Failed                                error="Patch \"http://localhost:3000/api/orders/8554/status\": request timeout"
+WARN[0413] Request Failed                                error="Patch \"http://localhost:3000/api/orders/96726/status\": request timeout"
+WARN[0413] Request Failed                                error="Patch \"http://localhost:3000/api/orders/124020/status\": request timeout"
+WARN[0413] Request Failed                                error="Patch \"http://localhost:3000/api/orders/5664/status\": request timeout"
+WARN[0413] Request Failed                                error="Patch \"http://localhost:3000/api/orders/92090/status\": request timeout"
+WARN[0413] Request Failed                                error="Patch \"http://localhost:3000/api/orders/96316/status\": request timeout"
+WARN[0413] Request Failed                                error="Patch \"http://localhost:3000/api/orders/92123/status\": request timeout"
+WARN[0413] Request Failed                                error="Patch \"http://localhost:3000/api/orders/67613/status\": request timeout"
+WARN[0413] Request Failed                                error="Patch \"http://localhost:3000/api/orders/30210/status\": request timeout"
+WARN[0413] Request Failed                                error="Patch \"http://localhost:3000/api/orders/66586/status\": request timeout"
+WARN[0413] Request Failed                                error="Patch \"http://localhost:3000/api/orders/39321/status\": request timeout"
+WARN[0413] Request Failed                                error="Patch \"http://localhost:3000/api/orders/79811/status\": request timeout"
+WARN[0413] Request Failed                                error="Patch \"http://localhost:3000/api/orders/105979/status\": request timeout"
+WARN[0413] Request Failed                                error="Patch \"http://localhost:3000/api/orders/99970/status\": request timeout"
+WARN[0413] Request Failed                                error="Patch \"http://localhost:3000/api/orders/26727/status\": request timeout"
+WARN[0413] Request Failed                                error="Patch \"http://localhost:3000/api/orders/74721/status\": request timeout"
+WARN[0413] Request Failed                                error="Patch \"http://localhost:3000/api/orders/111913/status\": request timeout"
+WARN[0413] Request Failed                                error="Patch \"http://localhost:3000/api/orders/77866/status\": request timeout"
+WARN[0413] Request Failed                                error="Patch \"http://localhost:3000/api/orders/87375/status\": request timeout"
+WARN[0413] Request Failed                                error="Patch \"http://localhost:3000/api/orders/100661/status\": request timeout"
+WARN[0413] Request Failed                                error="Patch \"http://localhost:3000/api/orders/13160/status\": request timeout"
+WARN[0413] Request Failed                                error="Patch \"http://localhost:3000/api/orders/99015/status\": request timeout"
+WARN[0413] Request Failed                                error="Patch \"http://localhost:3000/api/orders/118663/status\": request timeout"
+WARN[0413] Request Failed                                error="Patch \"http://localhost:3000/api/orders/26318/status\": request timeout"
+WARN[0413] Request Failed                                error="Patch \"http://localhost:3000/api/orders/14159/status\": request timeout"
+WARN[0413] Request Failed                                error="Patch \"http://localhost:3000/api/orders/85839/status\": request timeout"
+WARN[0413] Request Failed                                error="Patch \"http://localhost:3000/api/orders/11481/status\": request timeout"
+WARN[0413] Request Failed                                error="Patch \"http://localhost:3000/api/orders/97397/status\": request timeout"
+WARN[0413] Request Failed                                error="Patch \"http://localhost:3000/api/orders/121023/status\": request timeout"
+WARN[0413] Request Failed                                error="Patch \"http://localhost:3000/api/orders/95390/status\": request timeout"
+WARN[0413] Request Failed                                error="Patch \"http://localhost:3000/api/orders/116109/status\": request timeout"
+WARN[0413] Request Failed                                error="Patch \"http://localhost:3000/api/orders/77540/status\": request timeout"
+WARN[0413] Request Failed                                error="Patch \"http://localhost:3000/api/orders/112538/status\": request timeout"
+WARN[0413] Request Failed                                error="Patch \"http://localhost:3000/api/orders/64545/status\": request timeout"
+WARN[0413] Request Failed                                error="Patch \"http://localhost:3000/api/orders/2986/status\": request timeout"
+WARN[0413] Request Failed                                error="Patch \"http://localhost:3000/api/orders/95482/status\": request timeout"
+WARN[0413] Request Failed                                error="Patch \"http://localhost:3000/api/orders/109758/status\": request timeout"
+WARN[0413] Request Failed                                error="Patch \"http://localhost:3000/api/orders/109850/status\": request timeout"
+WARN[0413] Request Failed                                error="Patch \"http://localhost:3000/api/orders/89420/status\": request timeout"
+WARN[0413] Request Failed                                error="Patch \"http://localhost:3000/api/orders/27769/status\": request timeout"
+WARN[0413] Request Failed                                error="Patch \"http://localhost:3000/api/orders/74465/status\": request timeout"
+WARN[0413] Request Failed                                error="Patch \"http://localhost:3000/api/orders/72952/status\": request timeout"
+WARN[0413] Request Failed                                error="Patch \"http://localhost:3000/api/orders/108669/status\": request timeout"
+WARN[0413] Request Failed                                error="Patch \"http://localhost:3000/api/orders/3069/status\": request timeout"
+WARN[0413] Request Failed                                error="Patch \"http://localhost:3000/api/orders/128299/status\": request timeout"
+WARN[0413] Request Failed                                error="Patch \"http://localhost:3000/api/orders/55595/status\": request timeout"
+WARN[0413] Request Failed                                error="Patch \"http://localhost:3000/api/orders/43023/status\": request timeout"
+WARN[0413] Request Failed                                error="Patch \"http://localhost:3000/api/orders/63996/status\": request timeout"
+WARN[0413] Request Failed                                error="Patch \"http://localhost:3000/api/orders/15118/status\": request timeout"
+WARN[0413] Request Failed                                error="Patch \"http://localhost:3000/api/orders/15088/status\": request timeout"
+WARN[0413] Request Failed                                error="Patch \"http://localhost:3000/api/orders/13075/status\": request timeout"
+WARN[0413] Request Failed                                error="Patch \"http://localhost:3000/api/orders/21130/status\": request timeout"
+WARN[0413] Request Failed                                error="Patch \"http://localhost:3000/api/orders/82127/status\": request timeout"
+WARN[0413] Request Failed                                error="Patch \"http://localhost:3000/api/orders/14623/status\": request timeout"
+WARN[0413] Request Failed                                error="Patch \"http://localhost:3000/api/orders/106863/status\": request timeout"
+WARN[0413] Request Failed                                error="Patch \"http://localhost:3000/api/orders/56271/status\": request timeout"
+WARN[0413] Request Failed                                error="Patch \"http://localhost:3000/api/orders/45068/status\": request timeout"
+WARN[0413] Request Failed                                error="Patch \"http://localhost:3000/api/orders/62335/status\": request timeout"
+WARN[0413] Request Failed                                error="Patch \"http://localhost:3000/api/orders/12520/status\": request timeout"
+WARN[0413] Request Failed                                error="Patch \"http://localhost:3000/api/orders/35845/status\": request timeout"
+WARN[0413] Request Failed                                error="Patch \"http://localhost:3000/api/orders/61400/status\": request timeout"
+WARN[0413] Request Failed                                error="Patch \"http://localhost:3000/api/orders/45170/status\": request timeout"
+WARN[0413] Request Failed                                error="Patch \"http://localhost:3000/api/orders/62050/status\": request timeout"
+WARN[0413] Request Failed                                error="Patch \"http://localhost:3000/api/orders/19653/status\": request timeout"
+WARN[0413] Request Failed                                error="Patch \"http://localhost:3000/api/orders/118699/status\": request timeout"
+WARN[0413] Request Failed                                error="Patch \"http://localhost:3000/api/orders/22706/status\": request timeout"
+WARN[0413] Request Failed                                error="Patch \"http://localhost:3000/api/orders/30835/status\": request timeout"
+WARN[0413] Request Failed                                error="Patch \"http://localhost:3000/api/orders/90970/status\": request timeout"
+WARN[0413] Request Failed                                error="Patch \"http://localhost:3000/api/orders/116650/status\": request timeout"
+WARN[0413] Request Failed                                error="Patch \"http://localhost:3000/api/orders/76964/status\": request timeout"
+WARN[0413] Request Failed                                error="Patch \"http://localhost:3000/api/orders/56095/status\": request timeout"
+WARN[0413] Request Failed                                error="Patch \"http://localhost:3000/api/orders/24022/status\": request timeout"
+WARN[0413] Request Failed                                error="Patch \"http://localhost:3000/api/orders/120532/status\": request timeout"
+WARN[0413] Request Failed                                error="Patch \"http://localhost:3000/api/orders/53110/status\": request timeout"
+WARN[0413] Request Failed                                error="Patch \"http://localhost:3000/api/orders/106023/status\": request timeout"
+WARN[0413] Request Failed                                error="Patch \"http://localhost:3000/api/orders/65482/status\": request timeout"
+WARN[0413] Request Failed                                error="Patch \"http://localhost:3000/api/orders/92892/status\": request timeout"
+WARN[0413] Request Failed                                error="Patch \"http://localhost:3000/api/orders/84873/status\": request timeout"
+WARN[0413] Request Failed                                error="Patch \"http://localhost:3000/api/orders/43625/status\": request timeout"
+WARN[0413] Request Failed                                error="Patch \"http://localhost:3000/api/orders/104779/status\": request timeout"
+WARN[0413] Request Failed                                error="Patch \"http://localhost:3000/api/orders/80114/status\": request timeout"
+WARN[0413] Request Failed                                error="Patch \"http://localhost:3000/api/orders/43814/status\": request timeout"
+WARN[0413] Request Failed                                error="Patch \"http://localhost:3000/api/orders/72040/status\": request timeout"
+WARN[0413] Request Failed                                error="Patch \"http://localhost:3000/api/orders/108363/status\": request timeout"
+WARN[0413] Request Failed                                error="Patch \"http://localhost:3000/api/orders/76190/status\": request timeout"
+WARN[0413] Request Failed                                error="Patch \"http://localhost:3000/api/orders/83299/status\": request timeout"
+WARN[0413] Request Failed                                error="Patch \"http://localhost:3000/api/orders/10519/status\": request timeout"
+WARN[0413] Request Failed                                error="Patch \"http://localhost:3000/api/orders/20185/status\": request timeout"
+WARN[0413] Request Failed                                error="Patch \"http://localhost:3000/api/orders/28477/status\": request timeout"
+WARN[0413] Request Failed                                error="Patch \"http://localhost:3000/api/orders/80891/status\": request timeout"
+WARN[0413] Request Failed                                error="Patch \"http://localhost:3000/api/orders/120269/status\": request timeout"
+WARN[0413] Request Failed                                error="Patch \"http://localhost:3000/api/orders/23832/status\": request timeout"
+WARN[0413] Request Failed                                error="Patch \"http://localhost:3000/api/orders/61694/status\": request timeout"
+WARN[0413] Request Failed                                error="Patch \"http://localhost:3000/api/orders/50675/status\": request timeout"
+WARN[0413] Request Failed                                error="Patch \"http://localhost:3000/api/orders/107746/status\": request timeout"
+WARN[0413] Request Failed                                error="Patch \"http://localhost:3000/api/orders/127200/status\": request timeout"
+WARN[0413] Request Failed                                error="Patch \"http://localhost:3000/api/orders/19782/status\": request timeout"
+WARN[0413] Request Failed                                error="Patch \"http://localhost:3000/api/orders/5591/status\": request timeout"
+WARN[0413] Request Failed                                error="Patch \"http://localhost:3000/api/orders/28516/status\": request timeout"
+WARN[0413] Request Failed                                error="Patch \"http://localhost:3000/api/orders/73149/status\": request timeout"
+WARN[0413] Request Failed                                error="Patch \"http://localhost:3000/api/orders/126169/status\": request timeout"
+WARN[0413] Request Failed                                error="Patch \"http://localhost:3000/api/orders/112066/status\": request timeout"
+WARN[0413] Request Failed                                error="Patch \"http://localhost:3000/api/orders/62055/status\": request timeout"
+WARN[0413] Request Failed                                error="Patch \"http://localhost:3000/api/orders/115674/status\": request timeout"
+WARN[0413] Request Failed                                error="Patch \"http://localhost:3000/api/orders/74059/status\": request timeout"
+WARN[0413] Request Failed                                error="Patch \"http://localhost:3000/api/orders/113271/status\": request timeout"
+WARN[0413] Request Failed                                error="Patch \"http://localhost:3000/api/orders/88794/status\": request timeout"
+WARN[0413] Request Failed                                error="Patch \"http://localhost:3000/api/orders/109158/status\": request timeout"
+WARN[0413] Request Failed                                error="Patch \"http://localhost:3000/api/orders/82247/status\": request timeout"
+WARN[0413] Request Failed                                error="Patch \"http://localhost:3000/api/orders/25737/status\": request timeout"
+WARN[0413] Request Failed                                error="Patch \"http://localhost:3000/api/orders/77698/status\": request timeout"
+WARN[0547] The test has generated metrics with 400004 unique time series, which is higher than the suggested limit of 100000 and could cause high memory usage. Consider not using high-cardinality values like unique IDs as metric tags or, if you need them in the URL, use the name metric tag or URL grouping. See https://grafana.com/docs/k6/latest/using-k6/tags-and-groups/ for details.  component=metrics-engine-ingester
+
+
+  █ THRESHOLDS 
+
+    http_req_duration
+    ✗ 'p(95)<1500' p(95)=1.57s
+
+    http_req_failed
+    ✗ 'rate<0.05' rate=19.56%
+
+
+  █ TOTAL RESULTS 
+
+    checks_total.......: 114748 190.89408/s
+    checks_succeeded...: 87.67% 100605 out of 114748
+    checks_failed......: 12.32% 14143 out of 114748
+
+    ✗ status is 200
+      ↳  80% — ✓ 46148 / ✗ 11226
+    ✗ response time < 1500 ms
+      ↳  94% — ✓ 54457 / ✗ 2917
+
+    HTTP
+    http_req_duration..............: avg=522.2ms  min=507.8µs med=12.62ms max=1m48s p(90)=481.4ms  p(95)=1.57s
+      { expected_response:true }...: avg=227.78ms min=507.8µs med=12.37ms max=7.39s p(90)=426.67ms p(95)=1.38s
+    http_req_failed................: 19.56% 11226 out of 57374
+    http_reqs......................: 57374  95.44704/s
+
+    EXECUTION
+    iteration_duration.............: avg=1.52s    min=1s      med=1.01s   max=1m49s p(90)=1.48s    p(95)=2.57s
+    iterations.....................: 57374  95.44704/s
+    vus............................: 81     min=1              max=299
+    vus_max........................: 300    min=300            max=300
+
+    NETWORK
+    data_received..................: 22 MB  36 kB/s
+    data_sent......................: 20 MB  33 kB/s
+
+
+
+
+running (10m01.1s), 000/300 VUs, 57374 complete and 0 interrupted iterations
+default ✓ [======================================] 000/300 VUs  10m0s
+ERRO[0603] thresholds on metrics 'http_req_duration, http_req_failed' have been crossed 
