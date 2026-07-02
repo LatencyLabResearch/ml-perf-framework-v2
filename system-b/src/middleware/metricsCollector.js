@@ -61,17 +61,23 @@ function normalizePath(url) {
 // ─────────────────────────────────────────────────────────────────────────────
 // BACKGROUND SAMPLER  (every 1 s)
 // ─────────────────────────────────────────────────────────────────────────────
+// find the setInterval in metricsCollector.js and replace it
+const ALLOCATED_CORES = 0.5;
+const SCALE_FACTOR = 1 / ALLOCATED_CORES;
+
 setInterval(async () => {
     try {
         const stats = await pidusage(process.pid);
-        latestCpu = +stats.cpu.toFixed(2);
+        latestCpu = +Math.min(stats.cpu * SCALE_FACTOR, 100).toFixed(2);
         latestMemoryMB = +(stats.memory / 1_048_576).toFixed(2);
         cpuWindow.push({ ts: Date.now(), value: latestCpu });
         pruneOld(cpuWindow);
 
         const start = process.hrtime.bigint();
         setImmediate(() => {
-            latestEventLoopLagMs = +(Number(process.hrtime.bigint() - start) / 1e6).toFixed(2);
+            latestEventLoopLagMs = +(
+                Number(process.hrtime.bigint() - start) / 1e6
+            ).toFixed(2);
         });
     } catch (err) {
         console.error('[metricsCollector] sampler error:', err.message);

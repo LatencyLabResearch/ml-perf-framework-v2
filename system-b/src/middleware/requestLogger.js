@@ -41,7 +41,7 @@ function buildRow(m, e) {
 }
 
 module.exports = (req, res, next) => {
-    if (req.path === '/health') {
+    if (req.path === '/health' || req.path === '/metrics') {
         return next();
     }
 

@@ -1,4 +1,3 @@
-
 const express = require('express');
 
 const lightRoutes = require('../routes/light');
@@ -26,25 +25,30 @@ app.use('/api', lightRoutes);
 app.use('/api', moderateRoutes);
 app.use('/api', heavyRoutes);
 
-// Health check — no DB call, no metrics logging — clean signal for LB probes
 app.get('/health', (req, res) => {
-    res.json({
-        status: 'ok',
-        instance: require('./config').instanceId,
-        timestamp: new Date().toISOString(),
-    });
-});
-
-app.get('/metrics', (req, res) => {
   res.json({
-    cpu: parseFloat(getCpuPercent().toFixed(2)),
-    mem: parseFloat((process.memoryUsage().heapUsed / 1024 / 1024).toFixed(2)),
-    uptime: process.uptime(),
+    status:    'ok',
+    instance:  require('./config').instanceId,
+    timestamp: new Date().toISOString(),
   });
 });
 
+// getCpuPercent now takes no argument — pidusage reads current process
+app.get('/metrics', async (req, res) => {
+  try {
+    const cpu = await getCpuPercent();
+    res.json({
+      cpu:    parseFloat(cpu.toFixed(2)),
+      mem:    parseFloat((process.memoryUsage().heapUsed / 1024 / 1024).toFixed(2)),
+      uptime: process.uptime(),
+    });
+  } catch (err) {
+    res.status(500).json({ error: 'metrics unavailable' });
+  }
+});
+
 app.use((req, res) => {
-    res.status(404).json({ error: 'Endpoint not found' });
+  res.status(404).json({ error: 'Endpoint not found' });
 });
 
 module.exports = app;

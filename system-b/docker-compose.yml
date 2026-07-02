@@ -36,15 +36,13 @@ services:
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock  # Docker socket
     mem_limit: 256m
-    networks:
-    - default   
     cpus: 0.5
+    networks:
+      - default
     depends_on:
       instance1:
         condition: service_healthy
       instance2:
-        condition: service_healthy
-      instance3:
         condition: service_healthy
       postgres:
         condition: service_healthy
@@ -63,15 +61,12 @@ services:
         condition: service_healthy
       instance2:
         condition: service_healthy
-      instance3:
-        condition: service_healthy
-
     mem_limit: 256m
     mem_reservation: 64m
     cpus: 0.5
     restart: unless-stopped
 
-  # ── Node.js Instance 1 ──────────────────────────────────
+  # ── Base instance 1 ─────────────────────────────────────
   instance1:
     build: .
     user: root
@@ -90,14 +85,13 @@ services:
       postgres:
         condition: service_healthy
     healthcheck:
-      # CHANGED: Points to /health with a shorter 5s interval for quick startup
       test: ["CMD", "wget", "-qO-", "http://localhost:3001/health"]
       interval: 5s
       timeout: 3s
       retries: 5
     restart: unless-stopped
 
-  # ── Node.js Instance 2 ──────────────────────────────────
+  # ── Base instance 2 ─────────────────────────────────────
   instance2:
     build: .
     user: root
@@ -113,21 +107,20 @@ services:
     mem_reservation: 256m
     cpus: 2.0
     depends_on:
-      # CHANGED: Waits for instance1 to finish creating the database tables first
       instance1:
         condition: service_healthy
     healthcheck:
-      # CHANGED: Points to /health
       test: ["CMD", "wget", "-qO-", "http://localhost:3002/health"]
       interval: 5s
       timeout: 3s
       retries: 5
     restart: unless-stopped
 
-  # ── Base instances (always running) ─────────────────────
+  # ── Standby instances (profiles — never auto-start) ─────
   instance3:
     build: .
     user: root
+    profiles: ["standby"]
     environment:
       <<: *app-env
       PORT: "3003"
@@ -140,21 +133,15 @@ services:
     mem_reservation: 256m
     cpus: 2.0
     depends_on:
-      # CHANGED: Waits for instance1 to finish creating the database tables first
+      postgres:
+        condition: service_healthy
       instance1:
         condition: service_healthy
-    healthcheck:
-      # CHANGED: Points to /health
-      test: ["CMD", "wget", "-qO-", "http://localhost:3003/health"]
-      interval: 5s
-      timeout: 3s
-      retries: 5
-    restart: unless-stopped
 
-    # ── Standby instances (start stopped, autoscaler manages) ──
   instance4:
     build: .
     user: root
+    profiles: ["standby"]
     environment:
       <<: *app-env
       PORT: "3004"
@@ -169,10 +156,13 @@ services:
     depends_on:
       postgres:
         condition: service_healthy
+      instance1:
+        condition: service_healthy
 
   instance5:
     build: .
     user: root
+    profiles: ["standby"]
     environment:
       <<: *app-env
       PORT: "3005"
@@ -186,6 +176,8 @@ services:
     cpus: 2.0
     depends_on:
       postgres:
+        condition: service_healthy
+      instance1:
         condition: service_healthy
 
 volumes:
