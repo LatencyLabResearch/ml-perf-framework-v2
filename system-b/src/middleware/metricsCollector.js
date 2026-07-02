@@ -98,7 +98,7 @@ module.exports = (req, res, next) => {
     // Experiment metadata — populated by k6/JMeter via custom request headers.
     // Defaults to 'unknown' so every CSV row has a value (no sparse features).
     req._experiment = {
-        system_type: req.headers['x-system-type'] || 'A',
+        system_type: req.headers['x-system-type'] || 'B',
         traffic_pattern: req.headers['x-traffic-pattern'] || 'unknown',
         workload_type: req.headers['x-workload-type'] || 'unknown',
         endpoint_group: req.headers['x-endpoint-group'] || 'unknown',
