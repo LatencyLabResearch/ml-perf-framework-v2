@@ -33,6 +33,7 @@ services:
   # ── Autoscaler sidecar ──────────────────────────────────
   autoscaler:
     build: ./autoscaler
+    image: vipusa/autoscaler:latest
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock  # Docker socket
     mem_limit: 256m
@@ -69,6 +70,7 @@ services:
   # ── Base instance 1 ─────────────────────────────────────
   instance1:
     build: .
+    image: vipusa/system-b:latest
     user: root
     environment:
       <<: *app-env
