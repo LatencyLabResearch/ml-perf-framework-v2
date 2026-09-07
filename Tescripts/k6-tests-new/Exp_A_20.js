@@ -40,16 +40,18 @@ export default function () {
   const roll = Math.random();
 
   if (roll < 0.30) {
+    const userId = Math.floor(Math.random() * 10) + 1;
     const headers = { ...buildHeaders('Exp-A-20'), 'x-endpoint-group': 'lightweight' };
-    const res = http.get(`${BASE_URL}/api/users/1`, { headers });
+    const res = http.get(`${BASE_URL}/api/users/${userId}`, { headers });
     check(res, {
       '[L1] status 200':       (r) => r.status === 200,
       '[L1] latency < 1000ms': (r) => r.timings.duration < 1000,
     });
 
   } else if (roll < 0.60) {
+    const orderId = Math.floor(Math.random() * 10) + 1;
     const headers = { ...buildHeaders('Exp-A-20'), 'x-endpoint-group': 'lightweight' };
-    const res = http.get(`${BASE_URL}/api/orders/1`, { headers });
+    const res = http.get(`${BASE_URL}/api/orders/${orderId}`, { headers });
     check(res, {
       '[L2] status 200':       (r) => r.status === 200,
       '[L2] latency < 1000ms': (r) => r.timings.duration < 1000,
@@ -57,7 +59,12 @@ export default function () {
 
   } else if (roll < 0.75) {
     const headers = { ...buildHeaders('Exp-A-20'), 'x-endpoint-group': 'medium' };
-    const payload = JSON.stringify({ userId: 1, product: 'item', quantity: 1, price: 9.99 });
+    const payload = JSON.stringify({
+      user_id: Math.floor(Math.random() * 10) + 1,
+      product: `product-${Math.floor(Math.random() * 1000)}`,
+      quantity: Math.floor(Math.random() * 10) + 1,
+      amount: Number((Math.random() * 100 + 1).toFixed(2)),
+    });
     const res = http.post(`${BASE_URL}/api/orders`, payload, { headers });
     check(res, {
       '[M1] status 201':       (r) => r.status === 201,
@@ -65,9 +72,10 @@ export default function () {
     });
 
   } else if (roll < 0.90) {
+    const orderId = Math.floor(Math.random() * 129685) + 1;
     const headers = { ...buildHeaders('Exp-A-20'), 'x-endpoint-group': 'medium' };
     const payload = JSON.stringify({ status: 'processing' });
-    const res = http.patch(`${BASE_URL}/api/orders/1/status`, payload, { headers });
+    const res = http.patch(`${BASE_URL}/api/orders/${orderId}/status`, payload, { headers });
     check(res, {
       '[M2] status 200':       (r) => r.status === 200,
       '[M2] latency < 1500ms': (r) => r.timings.duration < 1500,
