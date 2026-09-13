@@ -33,6 +33,7 @@ const HEADER = [
   'request_id',
   'timestamp',
   'instance_id',
+  'instance_count',
   'system_type',
   'traffic_pattern',
   'workload_type',

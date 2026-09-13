@@ -105,6 +105,7 @@ module.exports = (req, res, next) => {
         test_tool: req.headers['x-test-tool'] || 'unknown',
         experiment_id: req.headers['x-experiment-id'] || 'unknown',
         concurrent_users: Number(req.headers['x-concurrent-users']) || 0,
+        instance_count: Number(req.headers['x-instance-count']) || 1,
     };
 
     // Compute rolling window statistics at request-arrival time.

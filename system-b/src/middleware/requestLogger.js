@@ -12,6 +12,7 @@ function buildRow(m, e) {
         m.request_id,
         m.timestamp,
         m.instance_id,
+        e.instance_count,
         e.system_type,
         e.traffic_pattern,
         e.workload_type,
