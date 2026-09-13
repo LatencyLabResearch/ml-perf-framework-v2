@@ -20,9 +20,9 @@ services:
       - postgres_data:/var/lib/postgresql/data
     expose:
       - "5432"
-    mem_limit: 512m
+    mem_limit: 1024m
     mem_reservation: 128m
-    cpus: 1.0
+    cpus: 2.0
     healthcheck:
       test: ["CMD-SHELL", "pg_isready -U postgres -d research"]
       interval: 5s
@@ -32,7 +32,7 @@ services:
 
   # ── Autoscaler sidecar ──────────────────────────────────
   autoscaler:
-    image: vipusa/autoscaler:latest
+    image: vipusa/autoscaler:V1
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock  # Docker socket
     mem_limit: 256m
@@ -68,8 +68,8 @@ services:
 
   # ── Node.js Instance 1 ──────────────────────────────────
   instance1:
-    image: vipusa/system-b:latest
-    user: root
+    image: vipusa/system-b:V1
+    use: root
     environment:
       <<: *app-env
       PORT: "3001"
@@ -93,8 +93,8 @@ services:
 
   # ── Node.js Instance 2 ──────────────────────────────────
   instance2:
-    image: vipusa/system-b:latest
-    user: root
+    image: vipusa/system-b:V1
+    use: root
     environment:
       <<: *app-env
       PORT: "3002"
@@ -118,8 +118,8 @@ services:
 
   # ── Node.js Instance 3 ──────────────────────────────────
   instance3:
-    image: vipusa/system-b:latest
-    user: root
+    image: vipusa/system-b:V1
+    use: root
     profiles: ["standby"]
     environment:
       <<: *app-env
@@ -138,8 +138,8 @@ services:
 
   # ── Node.js Instance 4 ──────────────────────────────────
   instance4:
-    image: vipusa/system-b:latest
-    user: root
+    image: vipusa/system-b:V1
+    use: root
     profiles: ["standby"]
     environment:
       <<: *app-env
@@ -158,8 +158,8 @@ services:
 
   # ── Node.js Instance 5 ──────────────────────────────────
   instance5:
-    image: vipusa/system-b:latest
-    user: root
+    image: vipusa/system-b:V1
+    use: root
     profiles: ["standby"]
     environment:
       <<: *app-env
