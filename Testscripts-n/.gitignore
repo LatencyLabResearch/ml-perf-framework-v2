@@ -1,0 +1,7 @@
+# K6 test result CSV files
+Testscripts-b/k6-tests-swees/*.csv
+Testscripts-n/results-B-swees/*.csv
+
+# K6 log files
+Testscripts-b/k6-tests-swees/*.log
+Testscripts-n/results-B-swees/*.log
