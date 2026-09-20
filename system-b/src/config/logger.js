@@ -5,30 +5,11 @@ const config = require('../server/config');
 
 fs.mkdirSync(config.logDir, { recursive: true });
 
-const csvFile = path.join(config.logDir, 'request.csv');
-const debugFile = path.join(config.logDir, 'request.log');
+// One file PER INSTANCE -> no two processes ever write to the same file.
+// e.g. request-instance-1.csv, request-instance-2.csv, request-instance-3.csv
+const csvFile = path.join(config.logDir, `request-${config.instanceId}.csv`);
+const debugFile = path.join(config.logDir, `request-${config.instanceId}.log`);
 
-const csvLogger = winston.createLogger({
-  format: winston.format.printf(info => info.message),
-  transports: [new winston.transports.File({ filename: csvFile, flags: 'a' })],
-});
-
-const debugLogger = winston.createLogger({
-  level: 'info',
-  format: winston.format.combine(
-    winston.format.timestamp(),
-    winston.format.printf(({ timestamp, level, message }) =>
-      `[${timestamp}] ${level.toUpperCase()} ${message}`
-    )
-  ),
-  transports: [
-    new winston.transports.Console(),
-    new winston.transports.File({ filename: debugFile, flags: 'a' }),
-  ],
-});
-
-// Written once by the first instance to start (wx = exclusive open).
-// The other two instances get EEXIST and skip silently — no duplicate header.
 const HEADER = [
   'request_id',
   'timestamp',
@@ -61,15 +42,34 @@ const HEADER = [
   'status_code',
 ].join(',');
 
+// Write the header BEFORE creating the winston transport, and only when the
+// file is missing or empty. This instance is the only writer, so there is no race.
 try {
-  const fd = fs.openSync(csvFile, 'wx');
-  fs.writeSync(fd, HEADER + '\n');
-  fs.closeSync(fd);
-  console.log(`[${config.instanceId}] CSV header written → ${csvFile}`);
-} catch (err) {
-  if (err.code !== 'EEXIST') {
-    console.error(`[${config.instanceId}] Failed to write CSV header:`, err);
+  if (!fs.existsSync(csvFile) || fs.statSync(csvFile).size === 0) {
+    fs.writeFileSync(csvFile, HEADER + '\n');
+    console.log(`[${config.instanceId}] CSV header written -> ${csvFile}`);
   }
+} catch (err) {
+  console.error(`[${config.instanceId}] Failed to write CSV header:`, err);
 }
+
+const csvLogger = winston.createLogger({
+  format: winston.format.printf(info => info.message),
+  transports: [new winston.transports.File({ filename: csvFile, flags: 'a' })],
+});
+
+const debugLogger = winston.createLogger({
+  level: 'info',
+  format: winston.format.combine(
+    winston.format.timestamp(),
+    winston.format.printf(({ timestamp, level, message }) =>
+      `[${timestamp}] ${level.toUpperCase()} ${message}`
+    )
+  ),
+  transports: [
+    new winston.transports.Console(),
+    new winston.transports.File({ filename: debugFile, flags: 'a' }),
+  ],
+});
 
 module.exports = { csvLogger, debugLogger };
