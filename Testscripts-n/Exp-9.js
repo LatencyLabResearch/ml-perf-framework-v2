@@ -1,0 +1,52 @@
+/**
+ * Exp_B_09 — Peak Load, Endpoint M1 (POST /api/orders), Isolated
+ * Users  : 50 → 300
+ * Duration: 10 minutes
+ * Pattern : Peak
+ */
+
+import http from 'k6/http';
+import { sleep, check } from 'k6';
+
+// Base URL for System B (proactive ML-driven backend).
+// Override at run time with: k6 run -e BASE_URL=http://otherhost:3000 Exp_B_XX.js
+const BASE_URL = __ENV.BASE_URL || 'http://localhost:3000';
+
+export const options = {
+  stages: [
+    { duration: '10m', target: 300 },
+  ],
+  thresholds: {
+    http_req_duration: ['p(95)<1500'],
+    http_req_failed:   ['rate<0.05'],
+  },
+};
+
+export default function () {
+  const payload = JSON.stringify({
+   user_id: Math.floor(Math.random() * 10) + 1, // 1-10
+    product: `product-${Math.floor(Math.random() * 1000)}`,
+    quantity: Math.floor(Math.random() * 10) + 1, // 1-10
+    amount: Number((Math.random() * 100 + 1).toFixed(2)),
+  });
+
+  const headers = {
+    'Content-Type':       'application/json',
+    'x-system-type':      'system-b',
+    'x-traffic-pattern':  'peak',
+    'x-workload-type':    'isolated',
+    'x-endpoint-group':   'medium',
+    'x-test-tool':        'k6',
+    'x-experiment-id':    'Exp-B-09',
+    'x-concurrent-users': String(__VU),
+  };
+
+  const res = http.post(`${BASE_URL}/api/orders`, payload, { headers });
+
+  check(res, {
+    'status is 201':           (r) => r.status === 201,
+    'response time < 1500 ms': (r) => r.timings.duration < 1500,
+  });
+
+  sleep(1);
+}
